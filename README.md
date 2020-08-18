@@ -1,21 +1,23 @@
-# restaurant-tutorial
+# Tutorial de Recetas con Vue
 
-## Project setup
+Este es el codigo inicial para que sigas el tutorial.
+
+## Instala las de Dependencias
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Levanta el Servidor de Desarrollo
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compila y prepara para el despliegue
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Lints y Correcciones a Archivos
 ```
 npm run lint
 ```
