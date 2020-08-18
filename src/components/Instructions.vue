@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>Instructions</h1>
     <p>
       {{ instructions }}
     </p>
@@ -14,7 +15,8 @@ export default {
 </script>
 <style scoped>
  .container {
-   background: deepskyblue;
+   font-family: "Roboto", sans-serif;
+   line-height: 30px;
  }
 
 </style>

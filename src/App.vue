@@ -1,21 +1,25 @@
 <template>
-  <div class="cosa">
+  <main>
     <Header />
-    <section class="description-container">
-      <div class="description">
-        <meal-description :meal="mockedData.meals[0]" />
-      </div>
-      <div class="picture">
-        <Photo :imgUrl="mockedData.meals[0].strMealThumb" />
+    <section class="wrapper">
+      <div class="content">
+        <section class="description-container">
+          <div class="description">
+            <meal-description :meal="meal" />
+          </div>
+          <div class="picture">
+            <Photo :imgUrl="meal.strMealThumb" />
+          </div>
+        </section>
+        <instructions :instructions="meal.strInstructions" />
       </div>
     </section>
-    <instructions :instructions="mockedData.meals[0].strInstructions"/>
-  </div>
+  </main>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import Instructions from "./components/Instructions.vue"
+import Instructions from "./components/Instructions.vue";
 import Photo from "./components/Photo.vue";
 import MealDescription from "./components/MealDescription.vue";
 
@@ -26,8 +30,15 @@ export default {
     Instructions,
     MealDescription
   },
+  created() {
+    fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+      .then(response => response.json())
+      .then(data => (this.meal = data.meals[0]))
+      .catch(error => console.error(error));
+  },
   data: () => {
     return {
+      meal: "",
       mockedData: {
         meals: [
           {
@@ -93,13 +104,34 @@ export default {
 </script>
 
 <style scoped>
- .description-container {
-   display: flex;
- }
- .description {
-   flex: 1;
- }
- .picture {
-   flex: 1;
- }
+.content {
+  width: 60%;
+  border: 3px hsl(41, 91%, 12%) solid;
+  border-radius: 16px;
+  padding: 18px;
+  background: hsl(41, 91%, 91%);
+  max-width: 850px;
+  margin-top: 7%;
+  margin-bottom: 22px;
+}
+.description-container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+.description {
+  flex: 1;
+}
+.picture {
+  flex: 1;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+main {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: hsl(155, 100%, 95%);
+}
 </style>

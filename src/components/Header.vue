@@ -12,15 +12,19 @@
 <style scoped>
  .header-container {
    display: flex;
-   background: gray;
+   flex-wrap: wrap;
+   font-family: "Roboto", sans-serif;
+   background: hsl(153, 60%, 80%);
    padding: 0 20px;
  }
  .description {
    flex: 8;
    display: flex;
+   min-width: 175px;
    justify-content: right;
  }
  .title {
-   flex: 2
+   flex: 2;
+   min-width: 80px;
  }
 </style>
