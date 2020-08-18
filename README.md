@@ -1,6 +1,6 @@
 # Tutorial de Recetas con Vue
 
-Este es el codigo inicial para que sigas el tutorial.
+Este es el codigo finalizado del tutorial
 
 ## Instala las de Dependencias
 ```
